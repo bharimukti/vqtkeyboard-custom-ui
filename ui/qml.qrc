@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>imports/utils/qmldir</file>
+        <file>imports/utils/Utils.qml</file>
+    </qresource>
+</RCC>
