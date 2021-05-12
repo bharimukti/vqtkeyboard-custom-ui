@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 import QtQuick.Window 2.14
 import QtQuick.VirtualKeyboard 2.14
 import QtQuick.VirtualKeyboard.Settings 2.14
+import QtQuick.VirtualKeyboard.Styles 2.14
+
 import utils 1.0
 
 ApplicationWindow {
@@ -11,7 +13,7 @@ ApplicationWindow {
     width: Utils.appWidth
     height: Utils.appHeight
     title: qsTr("Qt Virtual Keyboard Custom")
-    color: "black"
+    color: "white"
 
     Item {
         anchors.fill: parent
@@ -26,7 +28,7 @@ ApplicationWindow {
 
             Label {
                 color: "#565758"
-                text: "Tap fields to enter text"
+                text: "Qt Virtual Keyboard - StageTec"
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pixelSize: 22
             }
@@ -90,8 +92,14 @@ ApplicationWindow {
         InputPanel {
             id: inputPanel
             width: root.width
-            visible: Qt.inputMethod.visible
+            visible: true //Qt.inputMethod.visible
             anchors.bottom: parent.bottom
+        }
+
+        KeyboardStyle {
+            keyboardBackground: Rectangle {
+                color: "white"
+            }
         }
     }
 }

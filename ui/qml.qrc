@@ -3,5 +3,30 @@
         <file>main.qml</file>
         <file>imports/utils/qmldir</file>
         <file>imports/utils/Utils.qml</file>
+        <file>imports/layouts/fallback/dialpad.qml</file>
+        <file>imports/layouts/fallback/digits.qml</file>
+        <file>imports/layouts/fallback/handwriting.qml</file>
+        <file>imports/layouts/fallback/main.qml</file>
+        <file>imports/layouts/fallback/numbers.qml</file>
+        <file>imports/layouts/fallback/symbols.qml</file>
+        <file>imports/layouts/en_GB/dialpad.fallback</file>
+        <file>imports/layouts/en_GB/digits.fallback</file>
+        <file>imports/layouts/en_GB/handwriting.fallback</file>
+        <file>imports/layouts/en_GB/main.fallback</file>
+        <file>imports/layouts/en_GB/numbers.fallback</file>
+        <file>imports/layouts/en_GB/symbols.fallback</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/style.qml</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/backspace-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/check-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/enter-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/globe-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/handwriting-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/hidekeyboard-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/search-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/selectionhandle-bottom.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/shift-80c342.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/shift-868482.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/shift-c5d6b6.svg</file>
+        <file>styles/QtQuick/VirtualKeyboard/Styles/customstyle/images/textmode-868482.svg</file>
     </qresource>
 </RCC>
