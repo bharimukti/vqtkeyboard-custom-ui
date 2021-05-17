@@ -335,6 +335,17 @@ KeyboardStyle {
                 smooth: false
                 source: resourcePrefix + "images/hidekeyboard-868482.svg"
             }
+
+            Image {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                sourceSize.width: 100 * keyIconScale
+                sourceSize.height: 100 * keyIconScale
+                source: hideKeyPanel.control.state === "unlocked" ?
+                            resourcePrefix + "images/keyboard-unlocked" :
+                            resourcePrefix + "images/keyboard-locked"
+            }
         }
         states: [
             State {
@@ -369,17 +380,22 @@ KeyboardStyle {
         Rectangle {
             id: shiftKeyBackground
             radius: 5
-            color: "#1e1b18"
+            color: "#35322f"
             anchors.fill: shiftKeyPanel
             anchors.margins: keyBackgroundMargin
-            Image {
-                id: shiftKeyIcon
+
+            Text {
                 anchors.centerIn: parent
-                sourceSize.width: 144 * keyIconScale
-                sourceSize.height: 134 * keyIconScale
-                smooth: false
-                source: resourcePrefix + "images/shift-868482.svg"
+                color: "white"
+                text: shiftKeyPanel.control.displayText
+                font {
+                    family: fontFamily
+                    weight: Font.Normal
+                    pixelSize: 40 * scaleHint
+                    capitalization: control.uppercased ? Font.AllUppercase : Font.MixedCase
+                }
             }
+
             states: [
                 State {
                     name: "capsLockActive"
@@ -388,18 +404,10 @@ KeyboardStyle {
                         target: shiftKeyBackground
                         color: "#5a892e"
                     }
-                    PropertyChanges {
-                        target: shiftKeyIcon
-                        source: resourcePrefix + "images/shift-c5d6b6.svg"
-                    }
                 },
                 State {
                     name: "shiftActive"
                     when: InputContext.shiftActive
-                    PropertyChanges {
-                        target: shiftKeyIcon
-                        source: resourcePrefix + "images/shift-80c342.svg"
-                    }
                 }
             ]
         }
@@ -411,10 +419,6 @@ KeyboardStyle {
                     target: shiftKeyBackground
                     opacity: 0.80
                 }
-                PropertyChanges {
-                    target: shiftKeyIcon
-                    opacity: 0.6
-                }
             },
             State {
                 name: "disabled"
@@ -422,10 +426,6 @@ KeyboardStyle {
                 PropertyChanges {
                     target: shiftKeyBackground
                     opacity: 0.8
-                }
-                PropertyChanges {
-                    target: shiftKeyIcon
-                    opacity: 0.2
                 }
             }
         ]

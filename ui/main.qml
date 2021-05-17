@@ -92,7 +92,7 @@ ApplicationWindow {
         InputPanel {
             id: inputPanel
             width: root.width
-            visible: true //Qt.inputMethod.visible
+            visible: Qt.inputMethod.visible
             anchors.bottom: parent.bottom
         }
 

@@ -30,7 +30,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
 
-import QtQuick.VirtualKeyboard 2.1
+import QtQuick.VirtualKeyboard 2.15
 
 KeyboardLayout {
     id: root
@@ -39,11 +39,12 @@ KeyboardLayout {
     Layout.fillWidth: false
 
     property bool functionKeysEnabled: false
-    KeyboardRow {
+    property bool keyboardIsLocked: false
 
+    KeyboardRow {
         Key {
             key: Qt.Key_Escape
-            text: "ESC"
+            displayText: "ESC"
         }
         Key {
             key: Qt.Key_F1
@@ -98,7 +99,7 @@ KeyboardLayout {
         }
         Key {
             weight: 300
-            text: "Show \nFunction Keys"
+            displayText: "Show \nFunction Keys"
             onClicked: root.functionKeysEnabled = !root.functionKeysEnabled
         }
     }
@@ -106,7 +107,7 @@ KeyboardLayout {
     KeyboardRow {
         Key {
             key: Qt.Key_Tab
-            text: "TAB"
+            displayText: "TAB"
         }
         Key {
             key: Qt.Key_Q
@@ -162,7 +163,7 @@ KeyboardLayout {
         BackspaceKey {}
         Key {
             key: Qt.Key_Delete
-            text: "DELETE"
+            displayText: "DELETE"
         }
         // TODO
         Key {
@@ -173,12 +174,12 @@ KeyboardLayout {
         Key {
             weight: 120
             key: Qt.Key_PageUp
-            text: "PAGE \nUP"
+            displayText: "PAGE \nUP"
         }
         Key {
             weight: 120
             key: Qt.Key_End
-            text: "END"
+            displayText: "END"
         }
         Key {
             weight: 120
@@ -196,11 +197,15 @@ KeyboardLayout {
             text: "9"
         }
     }
+
     KeyboardRow {
-        Key {
+        ShiftKey {
             weight: 220
-            key: Qt.Key_CapsLock
-            text: "CAPS \nLOCK"
+            displayText: "CAPS \nLOCK"
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: InputContext.capsLockActive = !InputContext.capsLockActive
+//            }
         }
         FillerKey {
             weight: 20
@@ -282,15 +287,14 @@ KeyboardLayout {
             text: "6"
         }
     }
+
     KeyboardRow {
         keyWeight: 156
-        Key {
+        ShiftKey {
             weight: 220
-            key: Qt.Key_Shift
-            text: "SHIFT"
+            displayText: "SHIFT"
         }
         Key {
-            key: Qt.Key_Shift
             text: ">\n<"
         }
         Key {
@@ -336,10 +340,9 @@ KeyboardLayout {
             key: Qt.Key_Minus
             text: "_ \n-"
         }
-        Key {
+        ShiftKey {
             weight: 220
-            key: Qt.Key_Shift
-            text: "SHIFT"
+            displayText: "SHIFT"
         }
         FillerKey {
             weight: 470
@@ -347,7 +350,7 @@ KeyboardLayout {
         Key {
             weight: 135
             key: Qt.Key_Up
-            text: "UP"
+            displayText: "UP"
         }
         FillerKey {
             weight: 125
@@ -368,23 +371,24 @@ KeyboardLayout {
             text: "3"
         }
     }
+
     KeyboardRow {
         keyWeight: 154
         Key {
             weight: 150
             key: Qt.Key_Control
-            text: "CTRL"
+            displayText: "CTRL"
         }
         //TODO
         Key {
             weight: 150
             key: Qt.Key_0
-            text: "WIN"
+            displayText: "WIN"
         }
         Key {
             weight: 150
             key: Qt.Key_Alt
-            text: "ALT"
+            displayText: "ALT"
         }
 //        SymbolModeKey {
 //            weight: 217
@@ -399,30 +403,41 @@ KeyboardLayout {
         Key {
             weight: 150
             key: Qt.Key_AltGr
-            text: "ALT-GR"
+            displayText: "ALT-GR"
         }
         Key {
             weight: 150
             key: Qt.Key_Control
-            text: "CTRL"
+            displayText: "CTRL"
         }
         HideKeyboardKey {
+            id: hidekeyboardPanel
             weight: 220
+            state: !root.keyboardIsLocked ? "unlocked" : "locked"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    if (!root.keyboardIsLocked) {
+                        Qt.inputMethod.hide()
+                    }
+                }
+                onPressAndHold: root.keyboardIsLocked = !root.keyboardIsLocked
+            }
         }
         Key {
             weight: 95
             key: Qt.Key_Back
-            text: "Back"
+            displayText: "Back"
         }
         Key {
             weight: 95
             key: Qt.Key_Down
-            text: "Down"
+            displayText: "Down"
         }
         Key {
             weight: 95
             key: Qt.Key_Forward
-            text: "FWD"
+            displayText: "FWD"
         }
         FillerKey {
             weight: 90
