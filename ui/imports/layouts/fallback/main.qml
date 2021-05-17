@@ -33,9 +33,12 @@ import QtQuick.Layouts 1.0
 import QtQuick.VirtualKeyboard 2.1
 
 KeyboardLayout {
+    id: root
     inputMode: InputEngine.InputMode.Latin
     keyWeight: 160
     Layout.fillWidth: false
+
+    property bool functionKeysEnabled: false
     KeyboardRow {
 
         Key {
@@ -44,54 +47,59 @@ KeyboardLayout {
         }
         Key {
             key: Qt.Key_F1
-            text: "F1"
+            text: root.functionKeysEnabled ? "^\n°" : "F1"
         }
         Key {
             key: Qt.Key_F2
-            text: "F2"
+            text: root.functionKeysEnabled ? "!" : "F2"
         }
         Key {
             key: Qt.Key_F3
-            text: "F3"
+            text: root.functionKeysEnabled ? "”" : "F3"
         }
         Key {
             key: Qt.Key_F4
-            text: "F4"
+            text: root.functionKeysEnabled ? "§" : "F4"
         }
         Key {
             key: Qt.Key_F5
-            text: "F5"
+            text: root.functionKeysEnabled ? "$" : "F5"
         }
         Key {
             key: Qt.Key_F6
-            text: "F6"
+            text: root.functionKeysEnabled ? "%" : "F6"
         }
         Key {
             key: Qt.Key_F7
-            text: "F7"
+            text: root.functionKeysEnabled ? "&" : "F7"
         }
         Key {
             key: Qt.Key_F8
-            text: "F8"
+            text: root.functionKeysEnabled ? "/" : "F8"
         }
         Key {
             key: Qt.Key_F9
-            text: "F9"
+            text: root.functionKeysEnabled ? "(" : "F9"
         }
         Key {
             key: Qt.Key_F10
-            text: "F10"
+            text: root.functionKeysEnabled ? ")" : "F10"
         }
         Key {
             key: Qt.Key_F11
-            text: "F11"
+            text: root.functionKeysEnabled ? "=" : "F11"
         }
         Key {
             key: Qt.Key_F12
-            text: "F12"
+            text: root.functionKeysEnabled ? "?" : "F12"
         }
         FillerKey {
-            weight: 1440
+            weight: 970
+        }
+        Key {
+            weight: 300
+            text: "Show \nFunction Keys"
+            onClicked: root.functionKeysEnabled = !root.functionKeysEnabled
         }
     }
 
