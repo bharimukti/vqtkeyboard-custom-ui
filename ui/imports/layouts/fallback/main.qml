@@ -48,51 +48,63 @@ KeyboardLayout {
         }
         Key {
             key: Qt.Key_F1
-            text: root.functionKeysEnabled ? "^\n°" : "F1"
+            displayText: root.functionKeysEnabled ? "^\n°" : "F1"
+            text: root.functionKeysEnabled ? "^\n°" : ""
         }
         Key {
             key: Qt.Key_F2
-            text: root.functionKeysEnabled ? "!" : "F2"
+            displayText: root.functionKeysEnabled ? "!" : "F2"
+            text: root.functionKeysEnabled ? "!" : ""
         }
         Key {
             key: Qt.Key_F3
-            text: root.functionKeysEnabled ? "”" : "F3"
+            displayText: root.functionKeysEnabled ? "”" : "F3"
+            text: root.functionKeysEnabled ? "”" : ""
         }
         Key {
             key: Qt.Key_F4
-            text: root.functionKeysEnabled ? "§" : "F4"
+            displayText: root.functionKeysEnabled ? "§" : "F4"
+            text: root.functionKeysEnabled ? "§" : ""
         }
         Key {
             key: Qt.Key_F5
-            text: root.functionKeysEnabled ? "$" : "F5"
+            displayText: root.functionKeysEnabled ? "$" : "F5"
+            text: root.functionKeysEnabled ? "$" : ""
         }
         Key {
             key: Qt.Key_F6
-            text: root.functionKeysEnabled ? "%" : "F6"
+            displayText: root.functionKeysEnabled ? "%" : "F6"
+            text: root.functionKeysEnabled ? "%" : ""
         }
         Key {
             key: Qt.Key_F7
-            text: root.functionKeysEnabled ? "&" : "F7"
+            displayText: root.functionKeysEnabled ? "&" : "F7"
+            text: root.functionKeysEnabled ? "&" : ""
         }
         Key {
             key: Qt.Key_F8
-            text: root.functionKeysEnabled ? "/" : "F8"
+            displayText: root.functionKeysEnabled ? "/" : "F8"
+            text: root.functionKeysEnabled ? "/" : ""
         }
         Key {
             key: Qt.Key_F9
-            text: root.functionKeysEnabled ? "(" : "F9"
+            displayText: root.functionKeysEnabled ? "(" : "F9"
+            text: root.functionKeysEnabled ? "(" : ""
         }
         Key {
             key: Qt.Key_F10
-            text: root.functionKeysEnabled ? ")" : "F10"
+            displayText: root.functionKeysEnabled ? ")" : "F10"
+            text: root.functionKeysEnabled ? ")" : ""
         }
         Key {
             key: Qt.Key_F11
-            text: root.functionKeysEnabled ? "=" : "F11"
+            displayText: root.functionKeysEnabled ? "=" : "F11"
+            text: root.functionKeysEnabled ? "=" : ""
         }
         Key {
             key: Qt.Key_F12
-            text: root.functionKeysEnabled ? "?" : "F12"
+            displayText: root.functionKeysEnabled ? "?" : "F12"
+            text: root.functionKeysEnabled ? "?" : ""
         }
         FillerKey {
             weight: 970
@@ -426,17 +438,17 @@ KeyboardLayout {
         }
         Key {
             weight: 95
-            key: Qt.Key_Back
-            displayText: "Back"
+            key: Qt.Key_Left
+            displayText: "BACK"
         }
         Key {
             weight: 95
             key: Qt.Key_Down
-            displayText: "Down"
+            displayText: "DOWN"
         }
         Key {
             weight: 95
-            key: Qt.Key_Forward
+            key: Qt.Key_Right
             displayText: "FWD"
         }
         FillerKey {
